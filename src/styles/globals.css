@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-primary: #be2134;
+  --color-primary-hover: #9c1c2a;
+
+  --btn-padding: theme(spacing.2) theme(spacing.4);
+  --btn-border-width: theme(borderWidth.DEFAULT);
+  --btn-border-color: var(--color-primary);
+  --btn-border-color-hover: var(--color-primary);
+  --btn-border-radius: theme(borderRadius.DEFAULT);
+  --btn-text-size: theme(fontSize.base);
+  --btn-text-color: theme(colors.slate.100);
+  --btn-text-color-hover: theme(colors.white);
+  --btn-font-weight: theme(fontWeight.medium);
+
+  --ease: theme(transitionTimingFunction.in-out);
+  --duration: theme(transitionDuration.150);
+}
+
+@layer components {
+  .btn {
+    padding: var(--btn-padding);
+    border: var(--btn-border-width) solid var(--btn-border-color);
+    border-radius: var(--btn-border-radius);
+    color: var(--btn-text-color);
+    font-weight: var(--btn-font-weight);
+    font-size: var(--btn-text-size);
+    background-color: var(--color-primary);
+    transition: color var(--duration) var(--ease),
+      background-color var(--duration) var(--ease),
+      border-color var(--duration) var(--ease);
+  }
+
+  .btn.secondary {
+    --color-primary: theme(colors.white);
+    --color-primary-hover: theme(colors.white);
+    --btn-text-color: theme(colors.slate.500);
+    --btn-text-color-hover: theme(colors.black);
+    --btn-border-color: theme(colors.slate.200);
+    --btn-border-color-hover: theme(colors.black);
+  }
+
+  .btn:hover {
+    border-color: var(--btn-border-color-hover);
+    color: var(--btn-text-color-hover);
+    background-color: var(--color-primary-hover);
+  }
+}
