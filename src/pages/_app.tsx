@@ -7,7 +7,14 @@ import "~/styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider
+      {...pageProps}
+      appearance={{
+        variables: {
+          colorPrimary: "#be2134",
+        },
+      }}
+    >
       <Component {...pageProps} />
     </ClerkProvider>
   );
