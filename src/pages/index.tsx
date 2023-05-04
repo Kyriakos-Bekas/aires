@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
-import { Navigation } from "~/components";
+import { Footer, Navigation } from "~/components";
 
 import { api } from "~/utils/api";
 
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             </h2>
           </div>
         </main>
-        <div></div>
+        <Footer />
       </div>
     </>
   );
