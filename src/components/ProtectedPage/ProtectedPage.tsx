@@ -6,7 +6,7 @@ type ProtectedPageProps = {
 };
 
 // Component to handle private page
-const PrivatePage = ({ children }: ProtectedPageProps) => {
+const ProtectedPage = ({ children }: ProtectedPageProps) => {
   return (
     <>
       <SignedIn>
@@ -26,4 +26,4 @@ const PrivatePage = ({ children }: ProtectedPageProps) => {
   );
 };
 
-export default PrivatePage;
+export default ProtectedPage;
