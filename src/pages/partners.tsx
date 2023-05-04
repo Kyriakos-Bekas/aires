@@ -32,7 +32,9 @@ const Partners: NextPage = () => {
           </div>
 
           <div>
-            <h2 className="mb-4 ml-6 mt-16 text-xl font-medium">How?</h2>
+            <h2 className="mb-3 ml-4 mt-16 text-lg font-medium lg:mb-4 lg:ml-6 lg:text-xl">
+              How?
+            </h2>
 
             <div className="rounded-xl border border-slate-200 p-4 lg:px-6 lg:py-5 lg:text-lg">
               <p>
