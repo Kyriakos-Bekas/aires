@@ -18,6 +18,9 @@ export default {
         "layout-3": "auto 1fr auto",
         "layout-4": "auto auto 1fr auto",
       },
+      fontFamily: {
+        sans: ["var(--font-poppins)", "sans-serif"],
+      },
     },
   },
   plugins: [],
