@@ -1,7 +1,7 @@
 import { type AppType } from "next/app";
 import { ClerkProvider } from "@clerk/nextjs";
 import Head from "next/head";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
 
 import { api } from "~/utils/api";
 
