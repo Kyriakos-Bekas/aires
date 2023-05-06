@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
-import { Footer, Navigation } from "~/components";
+import { BasicLayout } from "~/layouts";
 
 import { api } from "~/utils/api";
 
@@ -10,29 +10,25 @@ const Home: NextPage = () => {
   const { user } = useUser();
 
   return (
-    <>
+    <BasicLayout>
       <Head>
         <title>AirES</title>
         <meta name="description" content="AirES" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid min-h-screen grid-rows-layout-3">
-        <Navigation />
-        <main className="container flex items-center">
-          <div className="grow text-center">
-            <h2 className="text-xl">
-              <SignedIn>
-                Hello <span className="font-semibold">{user?.fullName}</span>!
-              </SignedIn>
-              <SignedOut>
-                Hello <span className="font-semibold">Guest</span>!
-              </SignedOut>
-            </h2>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    </>
+      <main className="container flex items-center">
+        <div className="grow text-center">
+          <h2 className="text-xl">
+            <SignedIn>
+              Hello <span className="font-semibold">{user?.fullName}</span>!
+            </SignedIn>
+            <SignedOut>
+              Hello <span className="font-semibold">Guest</span>!
+            </SignedOut>
+          </h2>
+        </div>
+      </main>
+    </BasicLayout>
   );
 };
 

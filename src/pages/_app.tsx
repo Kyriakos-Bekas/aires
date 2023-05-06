@@ -1,12 +1,13 @@
-import { type AppType } from "next/app";
 import { ClerkProvider } from "@clerk/nextjs";
 import Head from "next/head";
 import { Poppins } from "next/font/google";
+import type { AppType } from "next/app";
 
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 
+/* Global Font Configuration */
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
