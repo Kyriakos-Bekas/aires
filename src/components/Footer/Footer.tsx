@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 
 type FooterColumn = {
   title: string;
@@ -114,4 +115,5 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);
+export { Footer as FooterNotMemoized };
