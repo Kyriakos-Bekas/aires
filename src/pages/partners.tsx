@@ -20,19 +20,19 @@ const Partners: NextPage = () => {
           />
         </div>
 
-        <main className="flex flex-col justify-center p-6 lg:p-14">
-          <div>
+        <main className="flex flex-col p-2 lg:p-16">
+          <div className="lg:p-5">
             <h1 className="text-3xl font-semibold lg:text-5xl">
               Become a partner
             </h1>
             <p className="mt-6 text-lg text-gray-700 lg:mt-8 lg:text-2xl">
-              Partner up with us to post your events on AirEs and reach more
+              Partner up with us to post your events on AirES and reach more
               people!
             </p>
           </div>
 
-          <div>
-            <h2 className="mb-3 ml-4 mt-16 text-lg font-medium lg:mb-4 lg:ml-6 lg:text-xl">
+          <div className="lg:p-5">
+            <h2 className="mb-3 ml-4 mt-16 text-lg font-medium lg:mt-10 lg:mb-4 lg:ml-6 lg:text-xl">
               How?
             </h2>
 
@@ -49,6 +49,21 @@ const Partners: NextPage = () => {
               </p>
 
               <p className="mt-5">We&apos;ll get back to you very soon!</p>
+            </div>
+            
+          </div>
+          <div className="grid grid-rows-2 grid-cols-2 lg:grid grid-rows-2 grid-cols-2 lg:items stretch p-7">
+            <div className="justify-self-center m-4">
+              <h1 className="font-semibold text-5xl mx-4">20+</h1>
+              <p className="my-3">active partners</p>
+            </div>
+            <div className="justify-self-center m-4">
+              <h1 className="font-semibold text-5xl">30+</h1>
+              <p className="my-3">locations</p>
+            </div>
+            <div className="col-span-full justify-self-center m-4">
+              <h1 className="font-semibold text-5xl mx-4">500+</h1>
+              <p className="my-3">satisfied customers</p>
             </div>
           </div>
         </main>

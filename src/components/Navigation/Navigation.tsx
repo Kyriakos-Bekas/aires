@@ -65,7 +65,7 @@ const Navigation = () => {
           </Link>
           {/* Mobile trigger */}
           <button
-            className={clsx(
+            className={ clsx(
               "relative order-10 block h-10 w-10 self-center lg:hidden",
               {
                 "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 [&_span:nth-child(2)]:-rotate-45 [&_span:nth-child(3)]:w-0 ":
@@ -95,7 +95,7 @@ const Navigation = () => {
           <ul
             role="menubar"
             aria-label="Select page"
-            className={clsx(
+            className={ clsx(
               "absolute left-0 top-0 z-[-1] h-[28.5rem] w-full justify-center overflow-hidden overflow-y-auto overscroll-contain bg-white/90 px-4 pb-12 pt-20 font-medium transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:ml-24 lg:mr-auto lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0 lg:pt-0 lg:opacity-100",
               {
                 "visible opacity-100 backdrop-blur-sm": isToggleOpen,
@@ -114,7 +114,7 @@ const Navigation = () => {
 
             <SignedOut>
               <SignInButton>
-                <button className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-rose-500 px-5 text-sm font-medium tracking-wide text-white shadow-md shadow-rose-200 transition duration-300 hover:bg-rose-600 hover:shadow-sm hover:shadow-rose-200 focus:bg-rose-700 focus:shadow-sm focus:shadow-rose-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-rose-300 disabled:bg-rose-300 disabled:shadow-none">
+                <button className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-red-700 px-5 text-sm font-medium tracking-wide text-white shadow-md shadow-rose-200 transition duration-300 hover:bg-rose-600 hover:shadow-sm hover:shadow-rose-200 focus:bg-rose-700 focus:shadow-sm focus:shadow-rose-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-rose-300 disabled:bg-rose-300 disabled:shadow-none rounded-3xl">
                   <span>Log in</span>
                 </button>
               </SignInButton>
