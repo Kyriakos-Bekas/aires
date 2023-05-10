@@ -16,3 +16,40 @@ model Example {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
+model Post {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    title     String
+    description String @db.VarChar(255)
+    imageUrl String
+    published Boolean  @default(false)
+    price     Float
+    date      DateTime
+    category ExtremeSportCategory
+    location  Location
+    partnerId String
+    @@index([partnerId])
+}
+
+enum ExtremeSportCategory {
+    SKI
+    SNOWBOARD
+    KITESURF
+    WINDSURF
+    SURF
+    MTB
+    BMX
+    SKATE
+    CLIMBING
+    HIKING
+    CANYONING
+    PARAGLIDING
+    WINGSUIT
+    SKYDIVING
+}
+
+enum Location {
+    ABQ
+    ATH
+}
