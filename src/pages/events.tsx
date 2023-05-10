@@ -47,11 +47,11 @@ const Checkbox = ({ label, value, onChange }: CheckboxProps) => {
         value={value}
         checked={checked}
         onChange={handleChange}
-        id="id-c01"
+        id={`id-${value}`}
       />
       <label
         className="cursor-pointer pl-2 text-slate-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400"
-        htmlFor="id-c01"
+        htmlFor={`id-${value}`}
       >
         {label}
       </label>
@@ -61,11 +61,11 @@ const Checkbox = ({ label, value, onChange }: CheckboxProps) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
-        aria-labelledby="title-1 description-1"
+        aria-labelledby={`title-${value} description-${value}`}
         role="graphics-symbol"
       >
-        <title id="title-1">Check mark icon</title>
-        <desc id="description-1">
+        <title id={`title-${value}`}>Check mark icon</title>
+        <desc id={`description-${value}`}>
           Check mark icon to indicate whether the checkbox is checked or not.
         </desc>
         <path
