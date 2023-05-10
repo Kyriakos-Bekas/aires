@@ -54,16 +54,16 @@ const Partners: NextPage = () => {
           </div>
           <div className="grid grid-rows-2 grid-cols-2 lg:grid grid-rows-2 grid-cols-2 lg:items stretch p-7">
             <div className="justify-self-center m-4">
-              <h1 className="font-semibold text-5xl mx-4">20+</h1>
+              <h3 className="font-semibold text-6xl mx-4">20+</h3>
               <p className="my-3">active partners</p>
             </div>
             <div className="justify-self-center m-4">
-              <h1 className="font-semibold text-5xl">30+</h1>
-              <p className="my-3">locations</p>
+              <h3 className="font-semibold text-6xl">30+</h3>
+              <p className="my-3 mx-5">locations</p>
             </div>
             <div className="col-span-full justify-self-center m-4">
-              <h1 className="font-semibold text-5xl mx-4">500+</h1>
-              <p className="my-3">satisfied customers</p>
+              <h3 className="font-semibold text-6xl mx-4">500+</h3>
+              <p className="my-3 mx-3">satisfied customers</p>
             </div>
           </div>
         </main>

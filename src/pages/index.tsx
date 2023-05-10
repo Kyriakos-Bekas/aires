@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <Navigation />
         <main className="container grid grid-cols-2 items-center">
           <div className="grid grid-rows-2 items-center grow text-center h-full w-full">
-            <h1 className="font-semibold text-6xl p-2 m-4"><a className="text-red-600">Extreme</a> Sports <i><a className="text-red-600">extreme</a>ly</i> easy!</h1>
+            <h1 className="font-semibold text-6xl p-2 m-4"><span className="text-red-600">Extreme</span> Sports <i><a className="text-red-600">extreme</a>ly</i> easy!</h1>
             <h2 className="text-xl">
               <SignedIn>
                 Hello <span className="font-semibold">{user?.fullName}</span>!
