@@ -20,7 +20,7 @@ const Partners: NextPage = () => {
           />
         </div>
 
-        <main className="flex flex-col p-2 lg:p-16">
+        <main className="flex flex-col p-4 lg:p-16">
           <div className="lg:p-5">
             <h1 className="text-3xl font-semibold lg:text-5xl">
               Become a partner
