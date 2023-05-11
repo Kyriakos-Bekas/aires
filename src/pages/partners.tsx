@@ -1,10 +1,9 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { BasicLayout } from "~/layouts";
 
 const Partners: NextPage = () => {
   return (
-    <BasicLayout>
+    <>
       <Head>
         <title>Become a Partner | AirES</title>
         <meta
@@ -21,13 +20,12 @@ const Partners: NextPage = () => {
           />
         </div>
 
-        <main className="flex flex-col p-4 lg:p-16">
+        <main className="flex flex-col p-4 pb-0 lg:p-10">
           <div className="lg:p-5">
             <h1 className="text-3xl font-semibold lg:text-5xl">
               Become a partner
             </h1>
             <p className="mt-6 text-lg text-gray-700 lg:mt-8 lg:text-2xl">
-              Partner up with us to post your events on AirES and reach more
               Partner up with us to post your events on AirES and reach more
               people!
             </p>
@@ -53,37 +51,23 @@ const Partners: NextPage = () => {
               <p className="mt-5">We&apos;ll get back to you very soon!</p>
             </div>
           </div>
-          <div className="lg:items stretch grid grid-cols-2 grid-cols-2 grid-rows-2 grid-rows-2 p-7 lg:grid">
+          <div className="lg:items stretch grid grid-cols-2 grid-rows-2 p-7 lg:grid">
             <div className="m-4 justify-self-center">
-              <h3 className="mx-4 text-6xl font-semibold">20+</h3>
+              <h3 className="mx-4 text-5xl font-semibold">20+</h3>
               <p className="my-3">active partners</p>
             </div>
             <div className="m-4 justify-self-center">
-              <h3 className="text-6xl font-semibold">30+</h3>
+              <h3 className="text-5xl font-semibold">30+</h3>
               <p className="mx-5 my-3">locations</p>
             </div>
             <div className="col-span-full m-4 justify-self-center">
-              <h3 className="mx-4 text-6xl font-semibold">500+</h3>
-              <p className="mx-3 my-3">satisfied customers</p>
-            </div>
-          </div>
-          <div className="lg:items stretch grid grid-cols-2 grid-cols-2 grid-rows-2 grid-rows-2 p-7 lg:grid">
-            <div className="m-4 justify-self-center">
-              <h3 className="mx-4 text-6xl font-semibold">20+</h3>
-              <p className="my-3">active partners</p>
-            </div>
-            <div className="m-4 justify-self-center">
-              <h3 className="text-6xl font-semibold">30+</h3>
-              <p className="mx-5 my-3">locations</p>
-            </div>
-            <div className="col-span-full m-4 justify-self-center">
-              <h3 className="mx-4 text-6xl font-semibold">500+</h3>
+              <h3 className="mx-4 text-5xl font-semibold">500+</h3>
               <p className="mx-3 my-3">satisfied customers</p>
             </div>
           </div>
         </main>
       </div>
-    </BasicLayout>
+    </>
   );
 };
 
