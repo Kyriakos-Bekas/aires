@@ -1,13 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../Button/Button";
-import { Post } from "@prisma/client";
+import { type Post as PostType } from "@prisma/client";
+import { share } from "~/utils/share";
+import { useRouter } from "next/router";
 
-export type PublicPost = Omit<Post, "published">;
+export type PublicPost = Omit<PostType, "published">;
 
 type PostProps = PublicPost;
 
 const Post = ({
+  id,
   title,
   description,
   date,
@@ -16,6 +19,12 @@ const Post = ({
   imageUrl,
   partnerId,
 }: PostProps) => {
+  const router = useRouter();
+
+  const handleCreatePlan = () => {
+    void router.push(`/create-plan?eventId=${id}`);
+  };
+
   return (
     <div className="mb-4 flex flex-col overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 last:mb-0 sm:flex-row lg:mb-6 last:lg:mb-0">
       <figure className="flex-1">
@@ -105,7 +114,7 @@ const Post = ({
           <span>{category}</span>
         </div>
         <div className="mt-4 flex justify-end gap-2 p-2 pt-0">
-          <button>
+          <button onClick={handleCreatePlan}>
             <Button
               icon={
                 <svg
@@ -127,7 +136,15 @@ const Post = ({
               variant="primary"
             />
           </button>
-          <button>
+          <button
+            onClick={() =>
+              void share({
+                title,
+                text: description,
+                url: imageUrl,
+              })
+            }
+          >
             <Button
               icon={
                 <svg
