@@ -1,7 +1,13 @@
+import { type Post } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+
+const filterPost = (post: Post) => {
+  const { published, ...returnedPost } = post;
+  return returnedPost;
+};
 
 export const postRouter = createTRPCRouter({
   getAll: publicProcedure.query(async ({ ctx }) => {
@@ -9,7 +15,7 @@ export const postRouter = createTRPCRouter({
       where: { published: true },
     });
 
-    return posts.map(({ published, ...returnedPost }) => returnedPost);
+    return posts.filter(filterPost);
   }),
   getOne: publicProcedure
     .input(z.object({ id: z.string() }))
@@ -36,8 +42,6 @@ export const postRouter = createTRPCRouter({
         });
       }
 
-      const { published, ...returnedPost } = post;
-
-      return returnedPost;
+      return filterPost(post);
     }),
 });
