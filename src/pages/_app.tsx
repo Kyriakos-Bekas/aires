@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Head from "next/head";
 import { Poppins } from "next/font/google";
 import type { AppType } from "next/app";
+import Redirect from "~/components/ProtectedPage/Redirect";
 
 import { api } from "~/utils/api";
 
@@ -30,7 +31,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         }}
       >
         <div className={`${poppins.variable} font-sans`}>
-          <Component {...pageProps} />
+          <Redirect>
+            <Component {...pageProps} />
+          </Redirect>
         </div>
       </ClerkProvider>
     </>
