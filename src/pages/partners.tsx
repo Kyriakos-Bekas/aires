@@ -1,7 +1,15 @@
+import { useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Partners: NextPage = () => {
+  const { user } = useUser();
+  const router = useRouter();
+
+  // Only allow non-partners (and non-logged in users) to access this page
+  if (!!user) void router.push("/");
+
   return (
     <>
       <Head>
