@@ -4,13 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import React, { useState } from "react";
+import { type NavigationProps, type NavLink } from "./types";
 
-type NavLinkProps = {
-  href: string;
-  label: string;
-};
-
-const NavLink = ({ href, label }: NavLinkProps) => (
+const NavLink = ({ href, label }: NavLink) => (
   <li role="none" className="flex items-stretch">
     <Link
       role="menuitem"
@@ -25,15 +21,15 @@ const NavLink = ({ href, label }: NavLinkProps) => (
   </li>
 );
 
-/* Demo Nav Links */
-// TODO: Find a better way to set the site links
-const navLinks = [
+/* Default Nav Links */
+// TODO: Find a better way to set the default site links
+const defaultNavLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/events", label: "Events" },
   { href: "/about", label: "About" },
 ];
 
-const Navigation = () => {
+const Navigation = ({ navLinks = defaultNavLinks }: NavigationProps) => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
