@@ -2,7 +2,6 @@ import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { BasicLayout } from "~/layouts";
-
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
