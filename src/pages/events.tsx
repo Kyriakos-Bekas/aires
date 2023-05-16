@@ -42,7 +42,7 @@ const Checkbox = ({ label, value, onChange }: CheckboxProps) => {
   return (
     <div className="relative mt-1 flex flex-wrap items-center">
       <input
-        className="peer h-4 w-4 cursor-pointer appearance-none rounded border-2 border-slate-500 bg-white transition-colors checked:border-rose-500 checked:bg-rose-500 checked:hover:border-rose-600 checked:hover:bg-rose-600 focus:outline-none checked:focus:border-rose-700 checked:focus:bg-rose-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-slate-100 disabled:bg-slate-50"
+        className="peer h-4 w-4 cursor-pointer appearance-none rounded border-2 border-slate-500 bg-white transition-colors checked:border-red-500 checked:bg-red-500 checked:hover:border-red-600 checked:hover:bg-red-600 focus:outline-none checked:focus:border-red-700 checked:focus:bg-red-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-slate-100 disabled:bg-slate-50"
         type="checkbox"
         value={value}
         checked={checked}

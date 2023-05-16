@@ -58,10 +58,10 @@ const Partners: NextPage = () => {
             </div>
             <div className="m-4 justify-self-center">
               <h3 className="text-5xl font-semibold">30+</h3>
-              <p className="mx-5 my-3">locations</p>
+              <p className="mx-2 my-3">locations</p>
             </div>
             <div className="col-span-full m-4 justify-self-center">
-              <h3 className="mx-4 text-5xl font-semibold">500+</h3>
+              <h3 className="mx-6 text-5xl font-semibold">500+</h3>
               <p className="mx-3 my-3">satisfied customers</p>
             </div>
           </div>

@@ -21,7 +21,7 @@ const Button = ({ label, icon, variant }: ButtonProps) => {
       className={clsx(
         "inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded px-5 text-sm font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-rose-300 disabled:shadow-none",
         {
-          "bg-rose-500 text-white hover:bg-rose-600 focus:bg-rose-700 disabled:bg-rose-300":
+          "bg-red-700 text-white hover:bg-rose-600 focus:bg-rose-700 disabled:bg-rose-300":
             variant === "primary",
           "bg-rose-50 text-rose-500 hover:bg-rose-100 hover:text-rose-600 focus:bg-rose-200 focus:text-rose-700 disabled:bg-rose-100 disabled:text-rose-400":
             variant === "secondary",
