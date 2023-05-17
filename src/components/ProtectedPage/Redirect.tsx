@@ -3,9 +3,9 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 import { useUserStore } from "~/utils/state";
 import { DashboardLayout } from "~/layouts";
+import { siteConfig } from "~/siteConfig";
 
-// Paths that are only accessible to partners
-const partnerPaths = ["/dashboard"];
+const partnerPaths = siteConfig.partnerRoutes;
 
 type RedirectProps = {
   children: React.ReactNode;
