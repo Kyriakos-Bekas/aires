@@ -11,6 +11,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     AIRLABS_APIKEY: z.string().min(1),
     RAPIDAPI_APIKEY: z.string().min(1),
+    AIRLABS_APIKEY: z.string().min(1),
   },
 
   /**
@@ -31,6 +32,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     AIRLABS_APIKEY: process.env.AIRLABS_APIKEY,
     RAPIDAPI_APIKEY: process.env.RAPIDAPI_APIKEY,
+    AIRLABS_APIKEY: process.env.AIRLABS_APIKEY,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 });
