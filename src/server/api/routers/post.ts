@@ -1,8 +1,12 @@
 import { type Post } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { eventPostFormSchema } from "~/utils/schemas";
+import {
+  createTRPCRouter,
+  privateProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 const filterPost = (post: Post) => {
   const { published, ...returnedPost } = post;
@@ -43,5 +47,40 @@ export const postRouter = createTRPCRouter({
       }
 
       return filterPost(post);
+    }),
+  create: privateProcedure
+    .input(eventPostFormSchema)
+    .mutation(async ({ input, ctx }) => {
+      const { userId } = ctx;
+      const post = await ctx.prisma.post.create({
+        data: {
+          ...input,
+          published: false,
+          partnerId: userId,
+        },
+      });
+
+      return post;
+    }),
+  getAllFromAuthor: privateProcedure.query(async ({ ctx }) => {
+    const { userId } = ctx;
+
+    const posts = await ctx.prisma.post.findMany({
+      where: { partnerId: userId },
+    });
+
+    return posts;
+  }),
+  changeStatus: privateProcedure
+    .input(z.object({ id: z.string(), published: z.boolean() }))
+    .mutation(async ({ input, ctx }) => {
+      const { id, published } = input;
+
+      const post = await ctx.prisma.post.update({
+        where: { id },
+        data: { published },
+      });
+
+      return post;
     }),
 });
