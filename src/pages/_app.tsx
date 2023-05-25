@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Poppins } from "next/font/google";
 import type { AppType } from "next/app";
 import Redirect from "~/components/ProtectedPage/Redirect";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 import { api } from "~/utils/api";
 
@@ -20,6 +21,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <style>{`:root { --font-poppins: ${
+          poppins.variable
+        }, ${fontFamily.sans.join(", ")} }`}</style>
       </Head>
       <ClerkProvider
         {...pageProps}

@@ -1,3 +1,4 @@
+import { fontFamily } from "tailwindcss/defaultTheme";
 import { type Config } from "tailwindcss";
 
 export default {
@@ -23,7 +24,7 @@ export default {
         "layout-4": "auto auto 1fr auto",
       },
       fontFamily: {
-        sans: ["var(--font-poppins)", "sans-serif"],
+        sans: ["var(--font-poppins)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
