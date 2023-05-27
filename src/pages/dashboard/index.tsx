@@ -31,43 +31,11 @@ import { CalendarIcon } from "lucide-react";
 import { cn } from "~/utils/cn";
 import { eventPostFormSchema as formSchema } from "~/utils/schemas";
 import { api } from "~/utils/api";
-
-const availableSportCategories = [
-  "SKI",
-  "SNOWBOARD",
-  "KITESURF",
-  "WINDSURF",
-  "SURF",
-  "MTB",
-  "BMX",
-  "SKATE",
-  "CLIMBING",
-  "HIKING",
-  "CANYONING",
-  "PARAGLIDING",
-  "WINGSUIT",
-  "SKYDIVING",
-];
-
-const availableLocations = [
-  {
-    name: "Albaquerque",
-    code: "ABQ",
-  },
-  {
-    name: "Athens (Greece)",
-    code: "ATH",
-  },
-];
+import { locations as availableLocations } from "~/data/locations";
+import { sportCategories as availableSportCategories } from "~/data/sportCategories";
 
 const Dashboard: NextPage = () => {
   const { user } = useUser();
-  const { mutate, isLoading: isPosting } = api.post.create.useMutation({
-    onSuccess: () => {
-      console.log("success");
-    },
-  });
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,6 +46,12 @@ const Dashboard: NextPage = () => {
       imageUrl: "",
       price: 0,
       date: new Date(),
+    },
+  });
+  const { mutate, isLoading: isPosting } = api.post.create.useMutation({
+    onSuccess: (post) => {
+      console.log(`Post ${post.title} created successfully!`);
+      form.reset();
     },
   });
 
@@ -93,7 +67,6 @@ const Dashboard: NextPage = () => {
           name="description"
           content="Manage your event posts through your presonalized dashboard"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="container grid grid-cols-1 items-center py-8">
@@ -214,10 +187,10 @@ const Dashboard: NextPage = () => {
                           {availableSportCategories.map((category) => (
                             <SelectItem
                               className="font-sans"
-                              value={category}
-                              key={category}
+                              value={category.value}
+                              key={category.value}
                             >
-                              {category}
+                              {category.label}
                             </SelectItem>
                           ))}
                         </SelectContent>
