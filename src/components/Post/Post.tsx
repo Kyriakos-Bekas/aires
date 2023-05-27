@@ -4,7 +4,14 @@ import Button from "../Button";
 import { type Post as PostType } from "@prisma/client";
 import { share } from "~/utils/share";
 import { useRouter } from "next/router";
-import { ArrowRightCircle, Calendar, Globe2, Share2 } from "lucide-react";
+import {
+  ArrowRightCircle,
+  Calendar,
+  Globe2,
+  Share2,
+  TagIcon,
+} from "lucide-react";
+import mapCodeToLocation from "~/utils/mapCodeToLocation";
 
 export type PublicPost = Omit<PostType, "published">;
 
@@ -63,7 +70,7 @@ const Post = ({
             <p className="text-sm text-slate-400">
               <span className="inline-flex items-center gap-1">
                 <Globe2 className="h-4 w-4" />
-                <span>{location}</span>
+                <span>{mapCodeToLocation(location)}</span>
                 <span className="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
                 <Calendar className="h-4 w-4" />
                 <span>{date.toDateString()}</span>
@@ -74,23 +81,7 @@ const Post = ({
         <p>{description}</p>
         <div className="my-4 inline-flex items-center justify-start gap-2 whitespace-nowrap rounded text-xs font-semibold uppercase tracking-wide">
           <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              role="graphics-symbol"
-              aria-labelledby={category}
-            >
-              <title id={category}>{category}</title>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-              />
-            </svg>
+            <TagIcon className="h-5 w-5" />
           </span>
           <span>{category}</span>
         </div>
