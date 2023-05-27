@@ -2,28 +2,9 @@ import { useEffect, useState } from "react";
 import { type PublicPost } from "~/components/Post/Post";
 import { Checkbox, Post, PostSkeleton } from "~/components";
 import { BasicLayout } from "~/layouts";
+import Head from "next/head";
+import { sportCategories as categories } from "~/data/sportCategories";
 import { api } from "~/utils/api";
-import { type ExtremeSportCategory } from "@prisma/client";
-
-type Filter = {
-  label: ExtremeSportCategory;
-  value: string;
-};
-
-const categories: Filter[] = [
-  {
-    label: "BMX",
-    value: "BMX",
-  },
-  {
-    label: "CANYONING",
-    value: "Canoying",
-  },
-  {
-    label: "SKYDIVING",
-    value: "Skydiving",
-  },
-];
 
 const Events = () => {
   const { data: posts, isLoading } = api.post.getAll.useQuery();
@@ -53,44 +34,55 @@ const Events = () => {
   };
 
   return (
-    <BasicLayout>
-      <div className="container py-8">
-        <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
-          <aside className="col-span-4 border-r border-slate-200 lg:col-span-4">
-            <div className="">
-              <h3 className="mb-4 text-lg font-medium">Filters</h3>
+    <>
+      <Head>
+        <title>Upcoming Events | AirES</title>
+        <meta
+          name="description"
+          content="Search for upcoming events based on sport and location"
+        />
+      </Head>
+      <BasicLayout>
+        <div className="container py-8">
+          <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+            <aside className="col-span-4 border-r border-slate-200 lg:col-span-4">
+              <div className="">
+                <h3 className="mb-4 text-lg font-medium">Filters</h3>
 
-              <div>
-                {categories.map((category) => (
-                  <Checkbox
-                    key={category.value}
-                    label={category.label}
-                    value={category.value}
-                    onChange={checkboxChangeHandler}
-                  />
-                ))}
+                <div>
+                  {categories.map((category) => (
+                    <Checkbox
+                      key={category.value}
+                      label={category.label}
+                      value={category.value}
+                      onChange={checkboxChangeHandler}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          </aside>
-          <main className="col-span-4 lg:col-span-8">
-            <h1 className="mb-6 text-2xl font-semibold">Events</h1>
-            {isLoading ? (
-              <PostSkeleton />
-            ) : (
-              <div>
-                {!(filteredPosts.length === 0) ? (
-                  filteredPosts.map((post) => <Post key={post.id} {...post} />)
-                ) : (
-                  <p className="mt-6 text-lg text-slate-600">
-                    Nothing to see here...
-                  </p>
-                )}
-              </div>
-            )}
-          </main>
+            </aside>
+            <main className="col-span-4 lg:col-span-8">
+              <h1 className="mb-6 text-2xl font-semibold">Events</h1>
+              {isLoading ? (
+                <PostSkeleton />
+              ) : (
+                <div>
+                  {!(filteredPosts.length === 0) ? (
+                    filteredPosts.map((post) => (
+                      <Post key={post.id} {...post} />
+                    ))
+                  ) : (
+                    <p className="mt-6 text-lg text-slate-600">
+                      Nothing to see here...
+                    </p>
+                  )}
+                </div>
+              )}
+            </main>
+          </div>
         </div>
-      </div>
-    </BasicLayout>
+      </BasicLayout>
+    </>
   );
 };
 
