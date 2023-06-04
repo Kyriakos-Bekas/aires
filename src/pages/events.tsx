@@ -73,7 +73,7 @@ const Events = () => {
             </div>
           </aside>
           <main className="col-span-4 lg:col-span-8">
-            <h1 className="mb-6 text-2xl font-semibold">Events</h1>
+            <h1 className="mb-6 text-2xl font-semibold">Browse Events</h1>
             {isLoading ? (
               <PostSkeleton />
             ) : (
