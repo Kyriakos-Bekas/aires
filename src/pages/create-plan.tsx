@@ -10,7 +10,7 @@ const CreatePlan = () => {
 
   const { data: post } = api.post.getOne.useQuery({ id: eventId });
   //const { data } = api.flight.test.useQuery({ flight_iata: "A3711" });
-  const { data: hotel } = api.hotel.test.useQuery({ name: "Athens" }); //check this later
+  const { data: hotel } = api.hotel.test.useQuery({ checkIn: "2023-09-27" }); //check this later
 
   if (!post) return null;
 
