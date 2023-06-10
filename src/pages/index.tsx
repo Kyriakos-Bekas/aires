@@ -3,7 +3,14 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { BasicLayout } from "~/layouts";
 import { api } from "~/utils/api";
-import Link from "next/link";
+import { ImageSlider } from "~/components/ImageSlider/ImageSlider";
+import { type EmblaOptionsType } from "embla-carousel-react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const OPTIONS: EmblaOptionsType = {};
+const SLIDE_COUNT = 4;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -44,12 +51,8 @@ const Home: NextPage = () => {
             </SignedOut>
           </h2>
         </div>
-        <div className="h- overflow-hidden lg:max-h-full">
-          <img
-            src="https://images.unsplash.com/photo-1551524559-8af4e6624178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1026&q=80"
-            alt="Ski jump photo"
-            className="rounded-xl object-cover lg:h-full lg:w-full"
-          />
+        <div className="overflow-hidden lg:max-h-full">
+          <ImageSlider slides={SLIDES} options={OPTIONS} />
         </div>
       </main>
     </BasicLayout>
