@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import Button from "../Button";
 import { type Post as PostType } from "@prisma/client";
@@ -12,6 +11,7 @@ import {
   TagIcon,
 } from "lucide-react";
 import mapCodeToLocation from "~/utils/mapCodeToLocation";
+import { type LocationCode } from "~/data/locations";
 
 export type PublicPost = Omit<PostType, "published">;
 
@@ -25,7 +25,6 @@ const Post = ({
   category,
   location,
   imageUrl,
-  partnerId,
 }: PostProps) => {
   const router = useRouter();
 
@@ -43,6 +42,7 @@ const Post = ({
   return (
     <div className="mb-4 flex flex-col overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 last:mb-0 sm:flex-row lg:mb-6 last:lg:mb-0">
       <figure className="flex-1">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageUrl}
           alt={`Event ${title}`}
@@ -52,25 +52,12 @@ const Post = ({
 
       <div className="flex-1 p-4 sm:px-0 lg:p-6">
         <header className="mb-4 flex gap-4">
-          <a
-            href={"#"}
-            className="relative inline-flex h-12 w-12 items-center justify-center rounded-full"
-          >
-            <Image
-              src={"https://i.pravatar.cc/48?img=24"}
-              alt={`${title} Author Profile Image`}
-              title={`${title} Author Profile Image`}
-              width={48}
-              height={48}
-              className="block max-w-full rounded-full"
-            />
-          </a>
           <div>
             <h2 className="text-xl font-medium text-slate-700">{title}</h2>
-            <p className="text-sm text-slate-400">
+            <p className="mt-2 text-sm text-slate-600">
               <span className="inline-flex items-center gap-1">
                 <Globe2 className="h-4 w-4" />
-                <span>{mapCodeToLocation(location)}</span>
+                <span>{mapCodeToLocation(location as LocationCode)}</span>
                 <span className="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
                 <Calendar className="h-4 w-4" />
                 <span>{date.toDateString()}</span>

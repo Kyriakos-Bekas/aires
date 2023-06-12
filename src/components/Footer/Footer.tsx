@@ -68,10 +68,6 @@ const footerColumns: FooterColumn[] = [
         href: "/partners",
         label: "Become a Partner",
       },
-      {
-        href: "/contact",
-        label: "Contact Us",
-      },
     ],
   },
 ];
