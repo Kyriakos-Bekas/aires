@@ -27,7 +27,7 @@ model Post {
     price     Float
     date      DateTime
     category ExtremeSportCategory
-    location  Location
+    location  String
     partnerId String
     @@index([partnerId])
 }
@@ -49,7 +49,16 @@ enum ExtremeSportCategory {
     SKYDIVING
 }
 
-enum Location {
-    ABQ
-    ATH
+model Plan {
+    id          String   @id @default(cuid())
+    createdAt   DateTime @default(now())
+    title       String
+    totalPrice  Float
+    flightToEvent Json
+    accommodation Json
+    flightFromEvent Json
+    draft       Boolean  @default(false)
+    userId String
+    eventId String
+    @@index([eventId])
 }
