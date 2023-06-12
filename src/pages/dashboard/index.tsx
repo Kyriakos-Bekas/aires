@@ -15,6 +15,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  // PartnerProtectedPage as ProtectedPage,
   ProtectedPage,
   Select,
   SelectContent,
@@ -153,8 +154,8 @@ const Dashboard: NextPage = () => {
                         <SelectContent>
                           {availableLocations.map((location) => (
                             <SelectItem
-                              value={location.code}
-                              key={location.code}
+                              value={location.city_code}
+                              key={location.city_code}
                             >
                               {location.name}
                             </SelectItem>
@@ -226,7 +227,7 @@ const Dashboard: NextPage = () => {
                   name="date"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Date of birth</FormLabel>
+                      <FormLabel>Event Date</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   Button,
   ProtectedPage,
+  // PartnerProtectedPage as ProtectedPage,
   Switch,
   Table,
   TableBody,
@@ -14,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "~/components";
+import { type LocationCode } from "~/data/locations";
 import { api } from "~/utils/api";
 import mapCodeToLocation from "~/utils/mapCodeToLocation";
 
@@ -108,7 +110,7 @@ const Events = () => {
                         {post.price}
                       </TableCell>
                       <TableCell className="hidden text-center lg:table-cell">
-                        {mapCodeToLocation(post.location)}
+                        {mapCodeToLocation(post.location as LocationCode)}
                       </TableCell>
                       <TableCell className="text-center">
                         {format(post.date, "dd MMM yyyy")}

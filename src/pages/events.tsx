@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { type PublicPost } from "~/components/Post/Post";
-import { Checkbox, Post, PostSkeleton } from "~/components";
-import { BasicLayout } from "~/layouts";
+import { Checkbox, OpenPage, Post, PostSkeleton } from "~/components";
 import Head from "next/head";
 import { sportCategories as categories } from "~/data/sportCategories";
 import { api } from "~/utils/api";
@@ -42,7 +41,7 @@ const Events = () => {
           content="Search for upcoming events based on sport and location"
         />
       </Head>
-      <BasicLayout>
+      <OpenPage>
         <div className="container py-8">
           <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
             <aside className="col-span-4 border-r border-slate-200 lg:col-span-4">
@@ -81,7 +80,7 @@ const Events = () => {
             </main>
           </div>
         </div>
-      </BasicLayout>
+      </OpenPage>
     </>
   );
 };

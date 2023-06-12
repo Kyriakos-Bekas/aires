@@ -1,10 +1,10 @@
 import { Navigation } from "~/components";
 
-type DashboardLayoutProps = {
+type DashboardPartnerLayoutProps = {
   children: React.ReactNode;
 };
 
-const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+const DashboardPartnerLayout = ({ children }: DashboardPartnerLayoutProps) => {
   return (
     <div className="grid min-h-screen grid-rows-layout-3">
       <Navigation
@@ -24,4 +24,4 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   );
 };
 
-export default DashboardLayout;
+export default DashboardPartnerLayout;
