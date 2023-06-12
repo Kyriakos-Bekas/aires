@@ -1,4 +1,10 @@
 import { z } from "zod";
+import { locationsNotConst as locations } from "~/data/locations";
+
+const locationCodes = locations.map(({ city_code }) => city_code) as [
+  string,
+  ...string[]
+];
 
 export const eventPostFormSchema = z.object({
   title: z
@@ -38,7 +44,7 @@ export const eventPostFormSchema = z.object({
       required_error: "Please select a category",
     }
   ),
-  location: z.enum(["ABQ", "ATH"], {
+  location: z.enum(locationCodes, {
     required_error: "Please select a location",
   }),
   imageUrl: z.string().url({
@@ -48,6 +54,24 @@ export const eventPostFormSchema = z.object({
     message: "Price must be at least 0",
   }),
   date: z.date({
+    required_error: "Please select a date",
+  }),
+});
+
+export const flightFormSchema = z.object({
+  location: z.string({
+    required_error: "Please select a location",
+  }),
+  date: z.date({
+    required_error: "Please select a date",
+  }),
+});
+
+export const hotelFormSchema = z.object({
+  checkIn: z.date({
+    required_error: "Please select a date",
+  }),
+  checkOut: z.date({
     required_error: "Please select a date",
   }),
 });

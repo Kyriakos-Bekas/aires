@@ -14,3 +14,6 @@ export { Calendar } from "./Calendar";
 export * from "./Popover";
 export * from "./Table";
 export { Switch } from "./Switch";
+export * from "./Selectable";
+export * from "./ImageSlider";
+export * from "./OpenPage";

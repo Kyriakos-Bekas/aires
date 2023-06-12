@@ -7,8 +7,11 @@ import {
   privateProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
+import { isBefore } from "date-fns";
 
-const filterPost = (post: Post) => {
+export type PublicPost = Omit<Post, "published">;
+
+const filterPost = (post: Post): PublicPost => {
   const { published, ...returnedPost } = post;
   return returnedPost;
 };
@@ -19,13 +22,13 @@ export const postRouter = createTRPCRouter({
       where: { published: true },
     });
 
-    return posts.filter(filterPost);
+    return posts
+      .filter((post) => !isBefore(post.date, new Date())) // Filter out posts that are in the past
+      .filter(filterPost);
   }),
   getOne: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ input, ctx }) => {
-      if (!input.id) return null; // TODO: Handle this better
-
       const post = await ctx.prisma.post.findUnique({
         where: { id: input.id },
       });
@@ -46,7 +49,9 @@ export const postRouter = createTRPCRouter({
         });
       }
 
-      return filterPost(post);
+      const publicPost = filterPost(post);
+
+      return publicPost;
     }),
   create: privateProcedure
     .input(eventPostFormSchema)

@@ -1,33 +1,30 @@
 import { useRouter } from "next/router";
 import { ProtectedPage } from "~/components";
-import { api } from "~/utils/api";
+import Steps from "~/components/Steps/Steps";
+import { usePlanStore } from "~/utils/state";
 
 const CreatePlan = () => {
   const router = useRouter();
   const eventId = !!router.query.eventId
     ? (router.query.eventId as string)
     : "";
+  const setEventId = usePlanStore((state) => state.setEventId);
 
-  const { data: post } = api.post.getOne.useQuery({ id: eventId });
-  const { data } = api.flight.test.useQuery({ flight_iata: "A3711" });
-
-  if (!post) return null;
+  // Store the id for the event the plan is for
+  setEventId(eventId);
 
   return (
-    <ProtectedPage>
-      <main className="flex min-h-screen items-center p-8">
-        <div className="max-w-full">
-          <h1 className="text-center text-lg font-semibold lg:text-left">
-            You will soon be able to create a plan for this post
-          </h1>
-          <div className="my-4 rounded-md border border-slate-300 p-2">
-            <pre className="overflow-x-scroll rounded-md bg-slate-800 p-2 text-slate-100">
-              {JSON.stringify(post, null, 2)}
-            </pre>
-          </div>
+    <>
+      <ProtectedPage>
+        <div className="container py-12">
+          <main className="mx-auto">
+            <div className="max-w-full">
+              <Steps />
+            </div>
+          </main>
         </div>
-      </main>
-    </ProtectedPage>
+      </ProtectedPage>
+    </>
   );
 };
 
