@@ -14,6 +14,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import clsx from "clsx";
 import { api } from "~/utils/api";
+import Head from "next/head";
 
 dayjs.extend(relativeTime);
 
@@ -38,6 +39,10 @@ const UserPlans = () => {
 
   return (
     <>
+      <Head>
+        <title>Your plans | AirES</title>
+      </Head>
+
       <ProtectedPage>
         <div className="container py-12">
           <main className="mx-auto">

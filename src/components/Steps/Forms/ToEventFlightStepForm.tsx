@@ -199,7 +199,7 @@ const ToEventFlightStepForm = () => {
 
             <div className="-mt-1 ml-auto">
               <Button type="submit" disabled={form.formState.isSubmitting}>
-                Search Flights
+                Search
               </Button>
             </div>
           </div>

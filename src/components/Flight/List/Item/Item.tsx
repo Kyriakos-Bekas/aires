@@ -20,12 +20,12 @@ const FlightListItem = ({ flight }: { flight: Flight }) => {
     <div className="text-left">
       <div>
         <div className="mb-6 flex items-center justify-start">
-          <div className="flex items-center">
+          <div className="flex flex-wrap items-center lg:flex-nowrap">
             <h3 className="text-xl font-medium">{`Flight ${flight_code}`}</h3>
-            <span className="ml-4">{`by ${flight_name}`}</span>
+            <span className="lg:ml-4">{`by ${flight_name}`}</span>
           </div>
 
-          <span className="ml-auto">
+          <span className="ml-auto shrink-0 self-start lg:self-auto">
             <span className="text-xl">{totals.total.toFixed(2)}</span>{" "}
             {totals.currency}
           </span>
@@ -39,7 +39,7 @@ const FlightListItem = ({ flight }: { flight: Flight }) => {
             <span className="mt-1">
               {format(new Date(departureAirport.time), "dd MMM yyyy")}
             </span>
-            <span>{departureAirport.label}</span>
+            <span className="hidden lg:block">{departureAirport.label}</span>
             <span>{departureAirport.code}</span>
           </span>
           <div className="z-10 grid grid-cols-1 gap-2">
@@ -56,16 +56,16 @@ const FlightListItem = ({ flight }: { flight: Flight }) => {
             <span className="mt-1">
               {format(new Date(arrivalAirport.time), "dd MMM yyyy")}
             </span>
-            <span>{arrivalAirport.label}</span>
+            <span className="hidden lg:block">{arrivalAirport.label}</span>
             <span>{arrivalAirport.code}</span>
           </span>
         </div>
 
-        <div className="mt-2 flex items-center gap-1 text-sm">
+        <div className="mt-4 flex flex-col gap-2 text-sm lg:mt-2 lg:flex-row lg:items-center lg:gap-1">
           <span className="">{cabinType}</span>
           {!!baggage && (
             <>
-              <Dot size={16} />
+              <Dot size={16} className="hidden lg:inline-block" />
               <div className="flex items-center gap-2">
                 <span>Baggage: </span>
                 <span>
